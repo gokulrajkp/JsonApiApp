@@ -8,5 +8,17 @@
         android:title="Switch list mode"
         app:actionViewClass="com.google.android.material.switchmaterial.SwitchMaterial"
         android:actionLayout="@layout/item_menu_switch"/>
+    <item
+        android:id="@+id/show_list"
+        app:showAsAction="always"
+        android:title="show list"
+        android:icon="@drawable/list_icon"/>
+    <item
+        android:visible="false"
+        android:id="@+id/show_grid"
+        app:showAsAction="always"
+        android:title="show list"
+        android:icon="@drawable/grid_item"/>
+
 
 </menu>
