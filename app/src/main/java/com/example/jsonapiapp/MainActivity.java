@@ -111,6 +111,10 @@ public class MainActivity extends AppCompatActivity {
                                 SaveTask();
                                 Toast.makeText(MainActivity.this, "accesing", Toast.LENGTH_SHORT).show();
                             }
+                            Log.d("list author :"," "+modelList.get(0).author);
+                            Log.d("list author :"," "+modelList.get(1).author);
+                            Log.d("list author :"," "+modelList.get(2).author);
+                            Log.d("list author :"," "+modelList.get(19).author);
                             adapterList.notifyDataSetChanged();
 
                         } catch (JSONException e) {
@@ -166,7 +170,8 @@ public class MainActivity extends AppCompatActivity {
     public void SaveTask(){
         class SaveTask extends AsyncTask<Void,Void ,Void>{
             @Override
-            protected Void doInBackground( Void...voids) {
+            protected Void doInBackground( Void... voids) {
+                Log.d("no"," times");
                     for (int i =0;i<modelList.size();i++){
                         Recipe recipe = new Recipe();
                         recipe.setId(modelList.get(i).getId());
@@ -176,10 +181,11 @@ public class MainActivity extends AppCompatActivity {
                         recipe.setImageUrl(modelList.get(i).getImageUrl());
                         recipe.setDownloadUrl(modelList.get(i).getDownloadUrl());
 
-                        Log.d("chkauthor",":"+i+modelList.get(0).author);
-                       DatabaseClient.getInstance(getApplicationContext()).getAppDatabase().recipeDao().insert(recipe);
+                        Log.d("chkauthor",":"+i+modelList.get(i).author);
+                        Log.d("rchkauthor",":"+recipe.getAuthor());
+                      //
+                        // DatabaseClient.getInstance(getApplicationContext()).getAppDatabase().recipeDao().insert(recipe);
                     }
-
 
 
                 return null;
